@@ -1,0 +1,18 @@
+* {
+	font-family: Menlo, sans-serif;
+}
+
+label {
+	display: block;
+	margin: 10px 20px 10px 10px;
+}
+input {
+	margin-left: 10px;
+}
+
+.wrapper {
+	width: 600px;
+	margin: 50px auto;
+	background-color: lightblue;
+	padding: 50px;
+}
