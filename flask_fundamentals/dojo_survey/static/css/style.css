@@ -1,0 +1,14 @@
+.wrapper {
+	width: 600px;
+	margin: 50px auto;
+	border: 3px solid black;
+	padding: 50px;
+}
+
+.inputs {
+	margin: 5px;
+}
+
+td {
+	margin: 10px;
+}

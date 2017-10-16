@@ -1,0 +1,17 @@
+#wrapper {
+	background-color: lightgray;
+	margin: 75px auto;
+	text-align: center;
+	width: 500px;
+	padding: 10px;
+}
+input {
+	display: block;
+	width: 150px;
+	margin: 10px auto
+}
+#guess_box {
+	width: 200px;
+	margin: auto;
+	padding: 20px 0px;
+}
