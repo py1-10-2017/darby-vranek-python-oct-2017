@@ -1,0 +1,25 @@
+.wrapper {
+	width: 600px;
+	margin: 50px auto;
+	border: 3px solid black;
+	padding: 50px;
+}
+
+.inputs {
+	margin: 10px 0px;
+}
+
+td {
+	margin: 10px;
+}
+
+.big_text {
+	margin: 10px 0px;
+	display: block;
+	width: 100%;
+	vertical-align: top;
+}
+
+.error {
+	color: red;
+}
