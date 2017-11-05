@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Edit Page</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<form class="" action="/friends/{{ friend.id }}" method="post">
+				<label for="first_name">First Name: </label><input type="text" name="first_name" value="{{ friend.first_name }}">
+				<label for="last_name">Last Name: </label><input type="text" name="last_name" value="{{ friend.last_name }}">
+				<label for="email">Email: </label><input type="text" name="email" value="{{ friend.email }}">
+				<input type="submit" value="Update">
+			</form>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Email Validation</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>The email address you entered ({{ new_email }}) is VALID! Thank you!</h1>
+		</div>
+		<h2>Email Addresses Entered</h2>
+		<table>
+			{% for address in email_addresses %}
+			<tr>
+				<td>{{address.email}}</td>
+				<td>{{address.created_at}}</td>
+			</tr>
+			{% endfor %}
+		</table>
+	</body>
+</html>

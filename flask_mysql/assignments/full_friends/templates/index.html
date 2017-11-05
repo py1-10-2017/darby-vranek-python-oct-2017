@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Full Friends App</title>
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Full Friends</h1>
+			<table>
+				<tr>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Actions</th>
+				</tr>
+				{% for friend in friends %}
+				<tr>
+					<td>{{ friend.first_name }}</td>
+					<td>{{ friend.last_name }}</td>
+					<td>{{ friend.email }}</td>
+					<td><a href="/friends/{{ friend.id }}/edit"><button>Edit</button></a> <a href="/friends/{{ friend.id }}/delete"><button>Delete</button></a></td>
+				</tr>
+				{% endfor %}
+			</table>
+			<form class="" action="/friends" method="post">
+				<p><label for="first_name">First Name: </label><input type="text" name="first_name" value=""></p>
+				<p><label for="last_name">Last Name: </label><input type="text" name="last_name" value=""></p>
+				<p><label for="email">Email: </label><input type="text" name="email" value="">
+				<input type="submit" name="" value="Add Friend"></p>
+			</form>
+		</div>
+	</body>
+</html>
