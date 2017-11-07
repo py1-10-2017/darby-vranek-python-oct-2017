@@ -1,6 +1,5 @@
 class Product(object):
 	def __init__(self, price, item_name, weight, brand):
-		super(Product, self).__init__()
 		self.price = price
 		self.item_name = item_name
 		self.weight = weight
@@ -44,5 +43,5 @@ class Product(object):
 
 bird_food = Product(18, 'Hookbill Cuisine', 5, 'Perfect Parrot')
 
-bird_food.sell().return_product('new').display_info()
+bird_food.sell().return_product('used').display_info()
 
