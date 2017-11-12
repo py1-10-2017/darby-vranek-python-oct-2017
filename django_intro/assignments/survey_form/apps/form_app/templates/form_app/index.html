@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Survey Form</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'form_app/css/style.css' %}">
+	</head>
+	<body>
+		<div class="wrapper">
+			<form class="" action="/process/" method="post" accept-charset="ascii">
+				{% csrf_token %}
+				<div class="input_field">
+					<label for="name">Your Name: <input type="text" name="name" /></label>
+				</div>
+				<div class="input_field">
+					<label for="location">Dojo Location: <select name="location">
+						<option value="Silicon Valley">Silicon Valley</option>
+						<option value="Seattle">Seattle</option>
+						<option value="Los Angeles">Los Angeles</option>
+						<option value="Dallas">Dallas</option>
+						<option value="Washington, D.C.">Washington, D.C.</option>
+						<option value="Chicago">Chicago</option>
+						<option value="Tulsa">Tulsa</option>
+					</select>
+					</label>
+				</div>
+				<div class="input_field">
+					<label for="language">Favorite Language: <select name="language">
+						<option value="JavaScript">JavaScript</option>
+						<option value="PHP">PHP</option>
+						<option value="Python">Python</option>
+						<option value="C#">C#</option>
+						<option value="Ruby">Ruby</option>
+						<option value="HTML">HTML</option>
+						<option value="CSS">CSS</option>
+					</select>
+					</label>
+				</div>
+				<div class="comment_field">
+					<label for="comment">Comment (optional): <textarea rows="5" name="comment"></textarea></label>
+				</div>
+				<input type="submit" value="Submit">
+			</form>
+		</div>
+	</body>
+</html>
