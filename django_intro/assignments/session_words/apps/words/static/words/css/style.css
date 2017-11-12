@@ -1,0 +1,31 @@
+.red {
+	color: red;
+}
+
+.big_red {
+	color: red;
+	font-size: 24px;
+}
+
+.blue {
+	color: blue;
+}
+
+.big_blue {
+	color: blue;
+	font-size: 24px;
+}
+
+.green {
+	color: green;
+}
+
+.big_green {
+	color: green;
+	font-size: 24px;
+}
+
+.half {
+	width: 400px;
+	display: inline-block;
+}
