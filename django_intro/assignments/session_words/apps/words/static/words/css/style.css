@@ -1,3 +1,11 @@
+* {
+	font-family: Menlo, monospace;
+}
+
+td {
+	padding: 5px;
+}
+
 .red {
 	color: red;
 }
@@ -5,6 +13,7 @@
 .big_red {
 	color: red;
 	font-size: 24px;
+	font-weight: bold;
 }
 
 .blue {
@@ -14,6 +23,7 @@
 .big_blue {
 	color: blue;
 	font-size: 24px;
+	font-weight: bold;
 }
 
 .green {
@@ -23,9 +33,20 @@
 .big_green {
 	color: green;
 	font-size: 24px;
+	font-weight: bold;
 }
 
 .half {
-	width: 400px;
+	width: 500px;
+	margin: 20px;
+	padding: 20px;
+	vertical-align: top;
 	display: inline-block;
+	height: 500px;
+	overflow: scroll;
+}
+
+.submit_button {
+	text-align: center;
+	margin: 20px;
 }

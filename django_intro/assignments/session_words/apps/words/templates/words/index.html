@@ -15,19 +15,19 @@
 					<p><input type="text" name="new_word"></p>
 					<div class="radio">
 						<label for="color">Choose color:
-							<p><input type="radio" name="radio_color" value="red">Red</p>
+							<p><input type="radio" name="radio_color" value="red" checked>Red</p>
 							<p><input type="radio" name="radio_color" value="green">Green</p>
 							<p><input type="radio" name="radio_color" value="blue">Blue</p>
 						</label>
 					</div>
-					<input type="checkbox" name="big_font"> <label for="big_font">show in BIG fonts!</label>
+					<input type="checkbox" name="big_font"> <label for="big_font">show in BIG font!</label>
 					<div class="submit_button">
 						<input type="submit" value="Add to Session">
 					</div>
 				</form>
 			</div>
 			<div class="half">
-				<div class="clear_session">
+				<div class="submit_button">
 					<form action="/session_words/clear_session/" method="post">
 						{% csrf_token %}
 						<input type="submit" value="Clear Session">
