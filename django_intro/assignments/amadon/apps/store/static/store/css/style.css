@@ -1,0 +1,34 @@
+* {
+	font-family: Helvetica, sans-serif;
+}
+
+
+.wrapper {
+	width: 500px;
+	padding: 30px;
+	border: 5px solid orange;
+	margin: 30px auto
+}
+
+td {
+	padding: 10px;
+	border-top: 1px solid darkorange;
+	border-bottom: 1px solid darkorange;
+}
+
+table {
+	margin: auto;
+	border-collapse: collapse;
+}
+
+table caption, h1 {
+	background-color: darkorange;
+	color: white;
+	border: 2px solid orange;
+	padding: 10px;
+	width: 150px;
+	margin: 0px auto 25px auto;
+	font-size: 24px;
+	font-family: 'Indie Flower', cursive;
+	font-weight: bold;
+}

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Amadon Checkout</title>
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'store/css/style.css' %}">
+		<link href="https://fonts.googleapis.com/css?family=Indie+Flower" rel="stylesheet">
+
+	</head>
+	<body>
+		<div class="wrapper">
+			<h1>Thank you for your business!</h1>
+			<p>We have charged your credit card for ${{ request.session.recent_price }}</p>
+			<p>You have ordered {{request.session.purchase_count }} items so far and have spent ${{ request.session.total_spent }} with Amadon.com!</p>
+			<a href="/">Go Back</a>
+		</div>
+	</body>
+</html>
