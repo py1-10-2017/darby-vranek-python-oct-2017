@@ -1,0 +1,214 @@
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py makemigrations
+No changes detected
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ atom .
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py makemigrations
+Migrations for 'dojo_ninjas':
+  apps/dojo_ninjas/migrations/0001_initial.py:
+    - Create model Dojo
+    - Create model Ninja
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying contenttypes.0001_initial... OK
+  Applying auth.0001_initial... OK
+  Applying admin.0001_initial... OK
+  Applying admin.0002_logentry_remove_auto_add... OK
+  Applying contenttypes.0002_remove_content_type_name... OK
+  Applying auth.0002_alter_permission_name_max_length... OK
+  Applying auth.0003_alter_user_email_max_length... OK
+  Applying auth.0004_alter_user_username_opts... OK
+  Applying auth.0005_alter_user_last_login_null... OK
+  Applying auth.0006_require_contenttypes_0002... OK
+  Applying auth.0007_alter_validators_add_error_messages... OK
+  Applying auth.0008_alter_user_username_max_length... OK
+  Applying dojo_ninjas.0001_initial... OK
+  Applying sessions.0001_initial... OK
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py shell
+Python 2.7.10 (default, Feb  7 2017, 00:08:15)
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.5.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: exit()
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py makemigrations
+You are trying to add a non-nullable field 'dojo' to ninja without a default; we can't do that (the database needs something to populate existing rows).
+Please select a fix:
+ 1) Provide a one-off default now (will be set on all existing rows with a null value for this column)
+ 2) Quit, and let me add a default in models.py
+Select an option: 1
+Please enter the default value now, as valid Python
+The datetime and django.utils.timezone modules are available, so you can do e.g. timezone.now
+Type 'exit' to exit this prompt
+>>> None
+Migrations for 'dojo_ninjas':
+  apps/dojo_ninjas/migrations/0002_ninja_dojo.py:
+    - Add field dojo to ninja
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying dojo_ninjas.0002_ninja_dojo... OK
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py shell
+Python 2.7.10 (default, Feb  7 2017, 00:08:15)
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.5.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: from apps.django_ninjas.models import *
+---------------------------------------------------------------------------
+ImportError                               Traceback (most recent call last)
+<ipython-input-1-38fe20c180f9> in <module>()
+----> 1 from apps.django_ninjas.models import *
+
+ImportError: No module named django_ninjas.models
+
+In [2]: from apps.dojo_ninjas.models
+  File "<ipython-input-2-334b65dd114b>", line 1
+    from apps.dojo_ninjas.models
+                                ^
+SyntaxError: invalid syntax
+
+
+In [3]: from apps.dojo_ninjas.models import *
+
+In [4]: sv = Dojo.objects.create(name='CodingDojo Silicon Valley', city=
+   ...: 'Mountain View', state='CA')
+
+In [5]: sea = Dojo.objects.create(name='CodingDojo Seattle', city='Seattle', state='
+   ...: WA')
+
+In [6]: ny = Dojo.objects.create(name='CodingDojo New York', city='New York', state=
+   ...: 'NY')
+
+In [7]: Dojo.objects.all()
+Out[7]: <QuerySet [<Dojo: CodingDojo Silicon Valley - Mountain View, CA>, <Dojo: CodingDojo Seattle - Seattle, WA>, <Dojo: CodingDojo New York - New York, NY>]>
+
+In [8]: for dojo in Dojo.objects.all():
+   ...:     dojo.delete()
+   ...:
+
+In [9]: Dojo.objects.all()
+Out[9]: <QuerySet []>
+
+In [10]: sv = Dojo.objects.create(name='CodingDojo Silicon Valley', city='Mountain V
+    ...: iew', state='CA')
+
+In [11]: sea = Dojo.objects.create(name='CodingDojo Seattle', city='Seattle', state=
+    ...: 'WA')
+
+In [12]: ny = Dojo.objects.create(name='CodingDojo New York', city='New York', state
+    ...: ='NY')
+
+In [13]: Ninja.objects.create(dojo=sv, first_name='Harry', last_name='Potter')
+Out[13]: <Ninja: Harry Potter, student at CodingDojo Silicon Valley>
+
+In [14]: Ninja.objects.create(dojo=sv, first_name='Hermione', last_name='Granger')
+Out[14]: <Ninja: Hermione Granger, student at CodingDojo Silicon Valley>
+
+In [15]: Ninja.objects.create(dojo=sv, first_name='Ron', last_name='Weasley')
+Out[15]: <Ninja: Ron Weasley, student at CodingDojo Silicon Valley>
+
+In [16]: Ninja.objects.create(dojo=sea, first_name='Luna', last_name='Lovegood')
+Out[16]: <Ninja: Luna Lovegood, student at CodingDojo Seattle>
+
+In [17]: Ninja.objects.create(dojo=sea, first_name='Ginny', last_name='Weasley')
+Out[17]: <Ninja: Ginny Weasley, student at CodingDojo Seattle>
+
+In [18]: Ninja.objects.create(dojo=sea, first_name='Neville', last_name='Longbottom'
+    ...: )
+Out[18]: <Ninja: Neville Longbottom, student at CodingDojo Seattle>
+
+In [19]: Ninja.objects.create(dojo=ny, first_name='Draco', last_name='Malfoy')
+Out[19]: <Ninja: Draco Malfoy, student at CodingDojo New York>
+
+In [20]: Ninja.objects.create(dojo=ny, first_name='Vincent', last_name='Crabbe')
+Out[20]: <Ninja: Vincent Crabbe, student at CodingDojo New York>
+
+In [21]: Ninja.objects.create(dojo=ny, first_name='Gregory', last_name='Goyle')
+Out[21]: <Ninja: Gregory Goyle, student at CodingDojo New York>
+
+In [22]: for ninja in Ninja.objects.all():
+    ...:     print(ninja)
+    ...:
+Harry Potter, student at CodingDojo Silicon Valley
+Hermione Granger, student at CodingDojo Silicon Valley
+Ron Weasley, student at CodingDojo Silicon Valley
+Luna Lovegood, student at CodingDojo Seattle
+Ginny Weasley, student at CodingDojo Seattle
+Neville Longbottom, student at CodingDojo Seattle
+Draco Malfoy, student at CodingDojo New York
+Vincent Crabbe, student at CodingDojo New York
+Gregory Goyle, student at CodingDojo New York
+
+
+
+In [34]: Ninja.objects.filter(dojo__state='CA')
+Out[34]: <QuerySet [<Ninja: Harry Potter, student at CodingDojo Silicon Valley>, <Ninja: Hermione Granger, student at CodingDojo Silicon Valley>, <Ninja: Ron Weasley, student at CodingDojo Silicon Valley>]>
+
+In [35]: sv.id
+Out[35]: 4
+
+In [36]: Dojo.objects.first().ninjas.all()
+Out[36]: <QuerySet [<Ninja: Harry Potter, student at CodingDojo Silicon Valley>, <Ninja: Hermione Granger, student at CodingDojo Silicon Valley>, <Ninja: Ron Weasley, student at CodingDojo Silicon Valley>]>
+
+In [37]: Dojo.objects.last().ninjas.all()
+Out[37]: <QuerySet [<Ninja: Draco Malfoy, student at CodingDojo New York>, <Ninja: Vincent Crabbe, student at CodingDojo New York>, <Ninja: Gregory Goyle, student at CodingDojo New York>]>
+
+In [38]: exit()
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py makemigrations
+Migrations for 'dojo_ninjas':
+  apps/dojo_ninjas/migrations/0003_dojo_desc.py:
+    - Add field desc to dojo
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py migrate
+Operations to perform:
+  Apply all migrations: admin, auth, contenttypes, dojo_ninjas, sessions
+Running migrations:
+  Rendering model states... DONE
+  Applying dojo_ninjas.0003_dojo_desc... OK
+(djangoEnv) Darbys-MacBook-Pro:django_assignments lyra$ python manage.py shell
+Python 2.7.10 (default, Feb  7 2017, 00:08:15)
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.5.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+
+In [1]: from apps.dojo_ninjas.models import *
+
+In [2]: for ninja in Dojo.objects.first().ninjas.all():
+   ...:     print(ninja)
+   ...:
+Harry Potter, student at CodingDojo Silicon Valley
+Hermione Granger, student at CodingDojo Silicon Valley
+Ron Weasley, student at CodingDojo Silicon Valley
+
+In [3]: for ninja in Dojo.objects.first().ninjas.all():
+   ...:     print(ninja)
+   ...:     print(ninja.desc)
+   ...:
+Harry Potter, student at CodingDojo Silicon Valley
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+<ipython-input-3-b4abfdf0f649> in <module>()
+      1 for ninja in Dojo.objects.first().ninjas.all():
+      2     print(ninja)
+----> 3     print(ninja.desc)
+      4
+
+AttributeError: 'Ninja' object has no attribute 'desc'
+
+In [4]: Dojo.objects.first().desc
+Out[4]: u''
